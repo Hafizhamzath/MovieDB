@@ -1,5 +1,9 @@
-⁡⁣⁢⁣This is a Simple Movie Search Website ⁡
+MovieDB
+A simple and elegant movie search website that uses the OMDB API to fetch movie details. Built with HTML, CSS, and JavaScript, this project features a cinematic design with a dark theme, centered movie details, and a responsive layout.
 
-The technologies used here is :- ⁡⁢⁣⁢HTML5, CSS, JS⁡
-
-This project is used to demonstrate the⁡⁢⁣⁢ API fetching and rendering of data⁡ on the webpage.
+Features
+Movie Search: Search for movies by title with autocomplete suggestions as you type.
+Detailed Information: Displays movie details including poster, title, year, rating, genre, writer, actors, plot, language, and awards.
+Responsive Design: Optimized for both desktop and mobile devices with a centered layout.
+Cinematic Theme: Dark background with a subtle cinema-related image, a red accent color (#e50914), and a professional look.
+Loading Spinner: Visual feedback during API calls to enhance user experience.
