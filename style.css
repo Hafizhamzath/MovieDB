@@ -1,0 +1,336 @@
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2c2c2c;
+    --text-color: #ffffff;
+    --accent-color: #e50914;
+    --border-color: #3a3a3a;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+    color: var(--text-color);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header {
+    background-color: rgba(44, 44, 44, 0.95);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo h1 span {
+    color: var(--accent-color);
+}
+
+.logo p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.2rem;
+}
+
+.search-container {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.search-container h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.search-element {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 6px rgba(229, 9, 20, 0.4);
+}
+
+.search-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    z-index: 10;
+    margin-top: 0.5rem;
+}
+
+.search-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-list::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+.search-list-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-list-item:hover {
+    background-color: #3a3a3a;
+    transform: translateX(3px);
+}
+
+.search-item-thumbnail img {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.search-item-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.search-item-info p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.hide-search-list {
+    display: none;
+}
+
+.result-container {
+    padding: 2rem 0;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-spinner {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin: 2rem 0;
+}
+
+.loading-spinner.hide {
+    display: none;
+}
+
+.result-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.movie-card {
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+    width: 100%;
+    max-width: 600px;
+}
+
+.movie-card.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.movie-poster {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.movie-poster img {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.movie-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.movie-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.movie-misc-info {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.movie-misc-info li {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.rated {
+    background-color: var(--accent-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.genre, .writer, .actors, .plot, .language, .awards {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.genre span, .writer span, .actors span, .plot span, .language span, .awards span {
+    font-weight: 600;
+}
+
+.awards i {
+    color: #ffd700;
+    margin-right: 0.5rem;
+}
+
+.error-message {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 1rem;
+    margin: 2rem 0;
+}
+
+.footer {
+    background-color: rgba(44, 44, 44, 0.95);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .movie-poster img {
+        max-width: 300px;
+        height: 300px;
+    }
+
+    .movie-info {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+
+    .logo p {
+        font-size: 0.8rem;
+    }
+
+    .search-container h2 {
+        font-size: 1.4rem;
+    }
+
+    .search-container {
+        padding: 1.5rem 0;
+    }
+
+    .form-control {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .movie-title {
+        font-size: 1.3rem;
+    }
+
+    .movie-poster img {
+        max-width: 250px;
+        height: 250px;
+    }
+
+    .result-container {
+        padding: 1.5rem 0;
+    }
+
+    .result-grid {
+        max-width: 100%;
+    }
+
+    .movie-card {
+        max-width: 100%;
+    }
+}
